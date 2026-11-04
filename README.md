@@ -154,5 +154,27 @@ If you need to delay initialization or control it manually:
 For full documentation on the Froala Editor API, options, and events, visit the [Official Froala Documentation](https://froala.com/wysiwyg-editor/docs/).
 
 ## License
-The `svelte-froala-wysiwyg` wrapper is released under the **MIT License**.
-However, **Froala Editor** itself requires a commercial license. Please visit [Froala Pricing](https://froala.com/wysiwyg-editor/pricing/) for more details.
+
+The `svelte-froala-wysiwyg` wrapper is under the MIT license. Froala Editor itself is commercial software: see the [pricing page](https://froala.com/wysiwyg-editor/pricing/) for licenses and the [License Agreement](https://froala.com/wysiwyg-editor/terms/) for the terms.
+
+### License key
+
+Every editor feature works without a license key. Without a valid key, the editor shows a short notice at the bottom, under "Powered by Froala", and writes the same text to the browser console once. That happens on `localhost` too.
+
+To evaluate the editor, use the public trial key, `TRIAL-LICENSE-KEY-FOR-FROALA-NOT-FOR-PRODUCTION-USE` (see the [activation page](https://froala.com/wysiwyg-editor/docs/activation/)). It lasts 30 days and isn't for production use, and the notice stays while it's in use.
+
+For production, [buy a license](https://cart.froala.com) and pass its key in the editor options:
+
+```svelte
+<script>
+  import FroalaEditor from 'svelte-froala-wysiwyg';
+
+  const config = {
+    key: 'YOUR_LICENSE_KEY'
+  };
+</script>
+
+<FroalaEditor {config} />
+```
+
+With a valid key the notice goes away, on `localhost` as well as on your own domain.
