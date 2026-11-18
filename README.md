@@ -154,5 +154,27 @@ If you need to delay initialization or control it manually:
 For full documentation on the Froala Editor API, options, and events, visit the [Official Froala Documentation](https://froala.com/wysiwyg-editor/docs/).
 
 ## License
-The `svelte-froala-wysiwyg` wrapper is released under the **MIT License**.
-However, **Froala Editor** itself requires a commercial license. Please visit [Froala Pricing](https://froala.com/wysiwyg-editor/pricing/) for more details.
+
+The `svelte-froala-wysiwyg` project is under the MIT license. Froala Editor itself is a commercial component with a 30-day free trial: see the [pricing page](https://cart.froala.com) and the [license terms](https://www.ideracorp.com/legal/Froala#tabs-2).
+
+### License key
+
+Froala requires a key, passed in the `key` option. Start with the trial key if you're just trying the product or comparing it with other solutions.
+
+```svelte
+<script>
+  import FroalaEditor from 'svelte-froala-wysiwyg';
+
+  const config = {
+    key: 'TRIAL-LICENSE-KEY-FOR-FROALA-NOT-FOR-PRODUCTION-USE' // 30-day trial key or your commercial key
+  };
+</script>
+
+<FroalaEditor {config} />
+```
+
+Before you go live, replace the trial key with your commercial key.
+
+Without a valid key the editor shows a notice in the bar at the bottom, under "Powered by Froala", and writes the same text to the browser console once. The text says whether the key is missing, a trial, invalid or expired.
+
+On a local host (`localhost`, `127.x.x.x`, `0.0.0.0`) you get the same notice as on a public site if there is no key, the key is a trial key, or the key has expired. A key that is still valid gives a clean editor there, so licensed developers are not affected.
